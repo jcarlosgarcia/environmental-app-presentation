@@ -1,0 +1,67 @@
+---
+title       : Environmental Prediction
+subtitle    : An application to predict the wind, temperature or radiation based on the ozone parts per billion in NYC
+author      : José Carlos García
+job         : Software Developer
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+The Environmental Prediction App uses the environmental dataset in the lattice package. This dataset contains the atmospheric environmental conditions in New York City from May to September of 1973
+
+--- .class #id 
+
+## Usage
+
+The Environmental Prediction App predicts the radiation, temperature or wind values using the ozone as a predictor
+
+* Select an outcome variable from the dropdown list (radiation, temperature or wind)
+* Move the slider to change the ozone parts per billion
+* The results of the prediction are shown on the right panel
+* A graph is displayed on the right panel with the outcome values in the y-axis and the ozone parts per billion in the x-axis
+* A orange mark is placed at the predicted value on the regression line
+* You may change your outcome variable and/or the ozone parts per billion value to see how the predicted value and the graph are updated
+
+--- .class #id 
+
+## Results of the prediction
+
+The user selects the outcome variable and the ozone parts per billion
+
+![Input](assets/img/example_input.png)
+
+And the predicted valued is shown
+
+```{r, echo=FALSE}
+library(lattice)
+data(environmental)
+
+predictEnvironmental <- function(outcome, ozone) { 
+  modelFit <- loess(outcome ~ environmental$ozone)
+  predict(modelFit, ozone)
+}
+
+predictEnvironmental(environmental$temperature, 25)
+
+```
+
+--- .class #id 
+
+## Graph and regression line
+
+A orange X marks the prediction on the regression line
+
+```{r, echo=FALSE, fig.align = 'center'}
+xyplot(temperature ~ ozone, data = environmental, pch = 20,
+             panel = function(x, y, ...) {
+               panel.xyplot(x, y, ...)
+               panel.loess(x, y, lwd = 3)
+               panel.points(x = 25, y = predictEnvironmental(environmental$temperature, 25), col = 'darkorange', pch = 4, cex = 2, lwd = 5)
+             })
+```
