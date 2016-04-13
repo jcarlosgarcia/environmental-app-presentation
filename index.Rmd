@@ -26,7 +26,7 @@ The Environmental Prediction App predicts the radiation, temperature or wind val
 * The results of the prediction are shown on the right panel
 * A graph is displayed on the right panel with the outcome values in the y-axis and the ozone parts per billion in the x-axis
 * A orange mark is placed at the predicted value on the regression line
-* The outcome variable and/or the ozone parts per billion value may be changed to see how the predicted value and the graph are updated
+* The outcome variable and/or the ozone parts per billion value can be changed to see how both the predicted value and the graph are updated
 
 --- .class #id 
 
@@ -36,7 +36,7 @@ The user selects the outcome variable and the ozone parts per billion
 
 ![Input](assets/img/example_input.png)
 
-And the predicted valued is shown
+And the predicted value is shown
 
 ```{r, echo=FALSE}
 library(lattice)

@@ -1,6 +1,6 @@
 ---
 title       : Environmental Prediction
-subtitle    : An application to predict the wind, temperature or radiation  based on the ozone parts per billion in NYC
+subtitle    : An application to predict the wind, temperature or radiation based on the ozone parts per billion in NYC
 author      : José Carlos García
 job         : Software Developer
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -26,7 +26,7 @@ The Environmental Prediction App predicts the radiation, temperature or wind val
 * The results of the prediction are shown on the right panel
 * A graph is displayed on the right panel with the outcome values in the y-axis and the ozone parts per billion in the x-axis
 * A orange mark is placed at the predicted value on the regression line
-* The outcome variable and/or the ozone parts per billion value may be changed to see how the predicted value and the graph are updated
+* The outcome variable and/or the ozone parts per billion value can be changed to see how both the predicted value and the graph are updated
 
 --- .class #id 
 
@@ -36,11 +36,11 @@ The user selects the outcome variable and the ozone parts per billion
 
 ![Input](assets/img/example_input.png)
 
-And the predicted valued is shown
+And the predicted value is shown
 
 
 ```
-## [1] 74.01
+## [1] 74.01249
 ```
 
 --- .class #id 
@@ -49,4 +49,4 @@ And the predicted valued is shown
 
 A orange X marks the prediction on the regression line
 
-<img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
